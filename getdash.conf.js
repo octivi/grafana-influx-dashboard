@@ -214,21 +214,22 @@ define(function getDashConf () {
     'graph': {
       'rx': {
         'color': '#447EBC',
-        'alias': 'octets-rx',
+        'alias': 'rx',
         'apply': 'derivative',
-        'math': '* -1',
+        'math': '* -8',
         'type': 'if_octets'
       },
       'tx': {
         'color': '#508642',
-        'alias': 'octets-tx',
+        'alias': 'tx',
         'apply': 'derivative',
+        'math': '* 8',
         'type': 'if_octets'
       }
     },
     'panel': {
       'title': 'Network Traffic on @metric',
-      'y_formats': [ 'Bps' ],
+      'y_formats': [ 'bps' ],
       'grid': { 'max': null, 'min': null, 'leftMin': null }
     }
   };
@@ -237,14 +238,14 @@ define(function getDashConf () {
     'graph': {
       'rx': {
         'color': '#447EBC',
-        'alias': 'packets-rx',
+        'alias': 'rx',
         'apply': 'derivative',
         'math': '* -1',
         'type': 'if_packets'
       },
       'tx': {
         'color': '#508642',
-        'alias': 'packets-tx',
+        'alias': 'tx',
         'apply': 'derivative',
         'type': 'if_packets'
       }
@@ -1091,12 +1092,12 @@ define(function getDashConf () {
     'graph': {
       'transport.rx.count': {
         'apply': 'derivative',
-        'alias': 'transport-rx'
+        'alias': 'rx'
       },
       'transport.tx.count': {
         'apply': 'derivative',
         'math': '* -1',
-        'alias': 'transport-tx'
+        'alias': 'tx'
       }
     },
     'panel': {
@@ -1109,11 +1110,11 @@ define(function getDashConf () {
   plugins.elasticsearch.transportSize = {
     'graph': {
       'transport.rx.size': {
-        'alias': 'transport-rx',
+        'alias': 'rx',
         'apply': 'derivative'
       },
       'transport.tx.size': {
-        'alias': 'transport-tx',
+        'alias': 'tx',
         'math': '* -1',
         'apply': 'derivative'
       }
